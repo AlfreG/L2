@@ -1,0 +1,394 @@
+\subsection{Parte 1}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Condensatori}
+
+\paragraph{Modelli parametrici stimati}
+
+La misura dell'impendenza prevede il posizionamento delle sonde dell'oscilloscopio ai capi delle componenti da misurare, il modello conseguente per la capacità è perciò $ Z = \tfrac{1}{jwC} $.
+
+%Si reputa tuttavia impossibile eliminare ogni resistenza, %anche solo per la presenza dei collegamenti o di componenti %incognite interne all'oscilloscopio stesso, che per quanto %piccole, si vuole darne conferma o rigetto su base empirica.
+
+%Il modello utilizzato per la stima dell'impedenza della %capacità ammette perciò la presenza di una componente %resistiva parassita incognita  $ R_{p} $.
+
+%Da una stima preliminare e dall'analisi dell'andamento delle %fasi dell'impendenza, risulta scartata a priori l'ipotesi, %più probabile, che tali resistenze parassite possano %presentarsi in parallelo: in tal caso infatti l'andamento %della fase dovrebbe essere decrescente, cosa che non viene %osservata. L'impedenza sarebbe infatti
+%\begin{align}
+%\frac{1}{Z} = \frac{1}{R_{p}} + jwC
+%\end{align}
+
+%Adottando perciò l'ipotesi residuale di eventuali resistenze %parassite in serie, l'impedenza risulta $ Z = R_{p} + %\tfrac{1}{jwC} $ e perciò
+
+$$ |Z| = \frac{1}{(\omega C)^2}$$
+$$ arg Z = - \pi/2, \quad \theta = CR_{p} $$
+
+%Dal modulo dell'impendenza si ricavano sia $ R_{p} $ che la %capacità $C$, mentre dall'argomento risulta identificabile %solo il loro prodotto
+%$ \theta = CR_{p} $.
+%In particolare, il modello per il modulo permette di testare %l'ipotesi di $R_{p}$ nulla, includendo il modello minimale %di assenza di resistenza $R_{p}$.
+
+
+%%%%%%%%%%%%%%%%%
+
+Per quanto riguarda la funzione di trasferimento, il parametro oggetto di stima è il prodotto $ \gamma = CR_{t} $, dove $ R_{t} $ è la resistenza totale del circuito
+
+$$ |H| = ( 1 + (w\gamma)^{2} )^{-\frac{1}{2}} $$
+$$ arg H = \arctan( -w\gamma ), \quad \gamma = CR_{t}$$
+
+
+\paragraph{Dati} $ |Z| $ è il rapporto della differenza di potenziale $  V_{b-a} $ con la corrente misurata come $ V_{b} / R_{tot} $. In $ R_{tot} $ si tiene conto sia del resistore nel circuito, che della resistenza interna del generatore 
+$ R_{t} = (14870 + 50) $ $\pm 1\%$.
+
+\break
+\paragraph{Risultati e commenti}
+%
+Relativamente alle componenti da $11$ $nF$ e $15$ $k\Omega$, la stima del valore di $C$ è compatibile con il valore di riferimento, così come l'intercetta del grafico dell'argomento è in linea con le aspettative.\\
+%
+In merito al grafico e alle stime dell'argomento dell'impedenza si osserva però che il modello utilizzato vincola un andamento rettilineo. La serie dei dati potrebbe essere però ben fittata anche da una curva crescente con le frequenze, evidenza compatibile con una resistenza parassita in serie con la capacità. La verifica è stata fatta adattando ai dati di impendeza un modello che comprende una resistenza in serie,  fondato sull'argomento che sia impossibile nella pratica eliminare ogni resistenza, anche solo per la presenza dei collegamenti o di componenti incognite interne all'oscilloscopio stesso, per quanto piccole. Di tale verifica non riportiamo i risultati perchè dai fit ottenuti la resistenza non viene rilevata nei dati relativi al modulo dell'impendenza.\\
+%
+Per quanto riguarda la funzione di trasferimento, i valori stimati di $C$, ricavati dividendo per la resistenza totale del circuito $15920$ $\Omega$ la media del prodotto $CR_{t}$ ottenuto dai dati del modulo e dell'argomento, risultano in buon accordo con quelli precedentemente ricavati con l'analisi dell'impedenza.\\
+%
+%
+\input{Tabelle/C3_P1_fit_cond1.tex}
+
+
+Relativamente alle componenti da $46$ $nF$ e 677 $\Omega$, valgono conclusioni del tutto analoghe. I dati confermano inoltre che le stime parametriche ottenute dalla funzione di trasferimento sono meno precise di quelle derivanti dall'impendeza. Ciònondimeno le due analisi restituiscono risultati in accordo, tra loro, e con il valore di riferimento.
+
+
+\input{Tabelle/C3_P1_fit_cond2.tex}
+
+La miglior stima delle due capacità risulta in conclusione essere
+$$
+C_{1} = 11.4 \pm 0.1 $$
+$$
+C_{2} = 47 \pm 2
+$$
+
+\paragraph*{Note: chi quadrato}
+\label{Note Chi quadrato}
+
+L'adattamento dei modelli teorici è stato ottenuto con fit non lineare. Diversamente da quanto avviene in un modello di regressione lineare ( ad esempio minimi quadrati non pesati), la stima dei parametri può mostrare forte dipendenza sia dalle condizioni iniziali impostate che dall'ampiezza degli errori. In questa analisi le condizioni iniziali erano ben note, sia dai valori di riferimento, sia da quelli ottenuti con multimetro palmare in fase preliminare. Per quanto riguarda invece gli errori sperimentali, abbiamo riscontrato che nella maggior parte dei fit gli errori sperimentali erano molto più grandi di quanto fosse giustificabile in base alla differenza quadratica media dei residui di regressione dai valori osservati. Per tale motivo, una volta ottenuta la prima stima, il modello è stato ristimato abbattendo gli errori sperimentali di un fattore proporzianale al rapporto tra varianza dei residui di regressione e gradi di libertà. Alla conclusione di questo capitolo si riportano le formule esatte utilizzate. In alcuni casi, questo procedimento è stato reiterato fino ad ottenere dei rapporti chi quadrato su gradi di libertà vicini all'unità.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\break
+\subsubsection*{Condensatore 11 nF: grafici e dati}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Grafici/C3_P1_ModImp_cond1.eps}
+\caption{
+Circuito RC serie.
+Ascisse [log( Freq. [Hz])].
+Resistenza circuito 14870+50 [ohm]
+Condensatore 11 [nF].
+}
+\label{fig:C3_P1_ModImp_cond1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Grafici/C3_P1_ArgImp_cond1.eps}
+\caption{
+Circuito RC serie.
+Ascisse [log( Freq. [Hz])].
+Resistenza circuito 14870+50 [ohm]
+Condensatore 11 [nF].
+}
+\label{fig:C3_P1_ArgImp_cond1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Grafici/C3_P1_ModFdT_cond1.eps}
+\caption{
+Circuito RC serie.
+Ascisse [log( Freq. [Hz])].
+Resistenza circuito 14870+50 [ohm]
+Condensatore 11 [nF].
+}
+\label{fig:C3_P1_ModFdT_cond1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Grafici/C3_P1_ArgFdT_cond1.eps}
+\caption{
+Circuito RC serie.
+Ascisse [log( Freq. [Hz])].
+Resistenza circuito 14870+50 [ohm]
+Condensatore 11 [nF].
+}
+\label{fig:C3_P1_ArgFdT_cond1}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Tabelle/C3_P1_cond1.tex}
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\break
+\subsubsection*{Condensatore 46 nF: grafici e dati}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Grafici/C3_P1_ModImp_cond2.eps}
+\caption{
+Circuito RC serie.
+Ascisse [log( Freq. [Hz])].
+Resistenza circuito 677+50 [ohm]
+Condensatore 46 [nF].
+}
+\label{fig:C3_P1_ModImp_cond2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Grafici/C3_P1_ArgImp_cond2.eps}
+\caption{
+Circuito RC serie.
+Ascisse [log( Freq. [Hz])].
+Resistenza circuito 677+50 [ohm]
+Condensatore 46 [nF].
+}
+\label{fig:C3_P1_ArgImp_cond2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Grafici/C3_P1_ModFdT_cond2.eps}
+\caption{
+Circuito RC serie.
+Ascisse [log( Freq. [Hz])].
+Resistenza circuito 677+50 [ohm]
+Condensatore 46 [nF].
+}
+\label{fig:C3_P1_ModFdT_cond2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Grafici/C3_P1_ArgFdT_cond2.eps}
+\caption{
+Circuito RC serie.
+Ascisse [log( Freq. [Hz])].
+Resistenza circuito 677+50 [ohm]
+Condensatore 46 [nF].
+}
+\label{fig:C3_P1_ArgFdT_cond2}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Tabelle/C3_P1_cond2.tex}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\break
+\subsubsection{Induttori}
+
+\paragraph{Modelli parametrici stimati}
+
+A differenza dei condensatori, negli induttori si aggiunge la presenza di resistenza interna al componente stesso, l'impedenza è
+$ Z = R_{p} + jwL $.
+
+
+Dal modulo dell'impendenza si ricavano sia $ R_{p} $ che l'induttanza $L$, mentre dall'argomento risulta identificabile solo il loro rapporto
+$ \theta = \frac{L}{R_{p}} $.
+
+$$
+|Z| = \sqrt{ R_{p}^2+ (Lw)^{2} }$$
+$$
+arg Z = \arctan( w\theta ), \quad \theta = \frac{L}{R_{p}}
+$$
+
+
+
+Per quanto riguarda la funzione di trasferimento, si tratta invece della resistenza totale del circuito $R_{t}$, che comprende quella del generatore e quella interna dell'induttore.
+
+$$
+|H| =   \frac{wL}{\sqrt{ R_{t}^{2} + (wL)^{2} } } 
+$$
+$$
+arg H = \arctan( \frac{1}{w\gamma} ) \quad \gamma = \frac{L}{R_{t}}
+$$
+
+\paragraph{Dati} $ |Z| $ è il rapporto della differenza di potenziale $  V_{b-a} $ con la corrente misurata come $ V_{b} / R_{tot} $. In $ R_{tot} $ si tiene conto sia del resistore nel circuito, che della resistenza interna del generatore $50$ $\Omega$, nonchè della resistenza propria dell'induttore $R_{p} = 60$ $\Omega$, come misurata con multimetro palmare:
+$ R_{t} = (677 + 50 + 60 )$ $\pm 1\%$.
+
+\break
+\paragraph{Risultati e commenti}
+
+Per quanto riguarda il primo induttore, le stime di $L$ derivanti dal modulo dell'impedenza e da quello della funzione di trasferimento sono concordi sul valore di $0.1$ $H$, ma con un risultato più preciso di tre ordini di grandezza per la prima misura.
+
+Per quanto riguarda la stima di $ R_{p} $, i risultati ottenuti non permettono di trarre conclusioni, a causa degli errori troppo alti.
+
+
+\input{Tabelle/C3_P1_fit_ind1.tex}
+
+Per quanto riguarda il secondo induttore, le stime dal modulo dell'impendeza forniscono risultati tra loro coerenti. Anche in questo caso, le misure derivanti dal modulo dell'impendenza sono molto più precise rispetto a quelle derivanti dal modulo della funzione di trasferimento. 
+%
+Il rapporto $ L / R_{p} $ derivante dall'argomento dell'impedenza si scosta leggermente dal rapporto delle stime derivante dal modulo. La causa di questo scostamento è da attribuirsi alla maggiore dispersione dei dati osservati rispetto al modello teorico stimato.\\ 
+%
+Per quanto riguarda le stime derivanti dalla funzione di trasferimento, anche per questo componente, l'incertezza sulle stime non permette di trarre conclusioni.\\
+%
+%
+\input{Tabelle/C3_P1_fit_ind2.tex}
+%
+Fatte salve le osservazioni sulla generale scarsa precisione dei risultati ottenuti per i due induttori, si considerano come stime conclusive le stime dal modulo dell'impedenza, che presentano un errore di diversi ordini di grandezza inferiore a quelle provenienti dal modulo della funzione di trasferimento. Allo stesso risultato si perverrebbe considerando uno stimatore che combina le stime dai due esperimenti mediate per la rispettiva precisione relativa.
+%
+\begin{align*}
+L_{1} & = 0.107   \pm 0.001 \;H \\
+L_{2} & = 0.0451  \pm 0.0002 \;H
+\end{align*}
+
+\paragraph*{Note: Chi quadrato}
+%
+Vale quanto spiegato nel paragrafo \ref{Note Chi quadrato}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\break
+\subsubsection*{Primo Induttore}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Grafici/C3_P1_ModImp_ind1.eps}
+\caption{
+Circuito RL serie.
+Ascisse [log( Freq. [Hz])].
+Resistenza circuito 677+50 [ohm]
+Primo induttore.
+}
+\label{fig:C3_P1_ModImp_ind1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Grafici/C3_P1_ArgImp_ind1.eps}
+\caption{
+Circuito RL serie.
+Ascisse [log( Freq. [Hz])].
+Resistenza circuito 677+50 [ohm]
+Primo induttore.
+}
+\label{fig:C3_P1_ArgImp_ind1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Grafici/C3_P1_ModFdT_ind1.eps}
+\caption{
+Circuito RL serie.
+Ascisse [log( Freq. [Hz])].
+Resistenza circuito 677+50 [ohm]
+Primo induttore.
+}
+\label{fig:C3_P1_ModFdT_ind1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Grafici/C3_P1_ArgFdT_ind1.eps}
+\caption{
+Circuito RL serie.
+Ascisse [log( Freq. [Hz])].
+Resistenza circuito 677+50 [ohm]
+Primo induttore.
+}
+\label{fig:C3_P1_ArgFdT_ind1}
+\end{figure}
+
+\input{Tabelle/C3_P1_ind1.tex}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\break
+\subsubsection*{Secondo Induttore}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Grafici/C3_P1_ModImp_ind2.eps}
+\caption{
+Circuito RL serie.
+Ascisse [log( Freq. [Hz])].
+Resistenza circuito 677+50 [ohm]
+Secondo induttore.
+}
+\label{fig:C3_P1_ModImp_ind2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Grafici/C3_P1_ArgImp_ind2.eps}
+\caption{
+Circuito RL serie.
+Ascisse [log( Freq. [Hz])].
+Resistenza circuito 677+50 [ohm]
+Secondo induttore.
+}
+\label{fig:C3_P1_ArgImp_ind2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Grafici/C3_P1_ModFdT_ind2.eps}
+\caption{
+Circuito RL serie.
+Ascisse [log( Freq. [Hz])].
+Resistenza circuito 677+50 [ohm]
+Secondo induttore.
+}
+\label{fig:C3_P1_ModFdT_ind2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Grafici/C3_P1_ArgFdT_ind2.eps}
+\caption{
+Circuito RL serie.
+Ascisse [log( Freq. [Hz])].
+Resistenza circuito 677+50 [ohm]
+Secondo induttore.
+}
+\label{fig:C3_P1_ArgFdT_ind2}
+\end{figure}
+
+\input{Tabelle/C3_P1_ind2.tex}

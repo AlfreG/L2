@@ -1,0 +1,170 @@
+\subsection{Parte 2: circuito RLC in corrente alternata}
+
+In accordo alla notazione utilizzata nella Parte 1, le funzioni di trasferimento sono parametrizzate e stimate utilizzando i parametri meccanici caratteristici di un sistema oscillante ad un grado di libertà: pulsazione propria e coefficiente di smorzamento. Le stime dei parametri elettrici di resistenza, induttanza e capacità sono ricavate operando una riparametrizzazione, e i relativi errori, ottenuti in accordo con l'approssimazione delle formule di propagazione.
+
+In questa sezione le funzioni di trasferimento indicate con 
+$f_{k}(w) = \frac{V_k}{V_A}$ si intendono quelle relative alla differenza di potenziale ai capi del generico componente $k$ sul segnale in ingresso $V_A$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% Resistenza
+
+
+
+\subsubsection{Resistenza}
+
+Funzione di trasferimento.
+Si indica con $R$ la resistenza del resistore e con $r$ le altre resistenze (generatore, induttore).
+$L$ l'induttanza e $C$ la capacità.
+
+\begin{align*}
+f_{R}(w) = \frac{V_{R}}{V_{A}} &= \frac{R}{(r+R) + j(wL - \frac{1}{wC})} 
+= \frac{1}{(1+r/R) + \frac{j}{2\gamma}(w - \frac{w_0^2}{w})}
+\end{align*}
+
+Modulo e fase.
+Posto $ y(w) = \frac{w - \frac{w_0^2}{w}}{2\gamma} $, e 
+$ k = (1+r/R)$
+
+\begin{align*}
+& |\frac{V_{R}}{V_{A}}|  = ( y(w)^2 + k^2)^{-\frac{1}{2}}
+& Arg\frac{V_{R}}{V_{A}} = \arctan( - \frac{y(w)}{k} )
+\end{align*}
+
+I parametri incogniti oggetto di stima sono
+$ w_0^2 $, $\gamma$ e $r/R$, da cui si ricavano i parametri elettrici di interesse,
+
+\begin{align*}
+    & r = (\frac{ r }{R}) R
+    & L =  \frac{r+R}{\gamma}\\
+    & C = \frac{1}{L w_{0}^{2}}
+\end{align*}
+
+dove $R$, la resistenza del resistore, è oggetto di misura diretta, perciò non proveniente da stima. 
+
+Di seguito i dati racolti e il loro grafico con la funzione adattata.
+
+
+\input{Tabelle/C4_P2_res.tex}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{Grafici/C4_P2_Res.eps}
+\caption{
+Circuito RLC serie.
+AC.
+Funzione di traferimento ai capi della resistenza.
+}
+\label{fig:C4_P2_Res}
+\end{figure}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% Capacità
+
+
+
+
+\subsubsection{Capacità}
+
+Funzione di trasferimento.
+Si indica con $R$ la resistenza del resistore e con $r$ le altre resistenze (generatore, induttore).
+
+\begin{align*}
+f_{C}(w) = \frac{V_{C}}{V_{A}} 
+= \frac{1}{ jwC ( (r+R) + j(wL - \frac{1}{wC}) ) }
+= 
+\frac{\frac{1}{w\frac{2\gamma}{w_0^2}}}
+{( j(1+r/R) - \frac{1}{2\gamma}( w-\frac{w_0^2}{w} ) ) }.
+\end{align*}
+
+Modulo e fase.
+Posto
+$ y(w) = \frac{w - \frac{w_0^2}{w}}{2\gamma} $,
+$ z(w) = \frac{1}{w\frac{2\gamma}{w_0^2}} $ e 
+$ k = (1+r/R)$
+
+\begin{align*}
+& |\frac{V_{C}}{V_{A}}|  = z(w)( y(w)^2 + k^2)^{-\frac{1}{2}}
+& Arg\frac{V_{C}}{V_{A}} = \arctan( \frac{k}{y(w)} )
+\end{align*}
+
+
+\input{Tabelle/C4_P2_cond.tex}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{Grafici/C4_P2_Cond.eps}
+\caption{
+Circuito RLC serie.
+AC.
+Funzione di traferimento ai capi della capacità.
+}
+\label{fig:C4_P2_Cond}
+\end{figure}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% Induttore
+
+
+
+
+\subsubsection{Induttore}
+
+Funzione di trasferimento.
+Si indica con $R$ la resistenza del resistore e con $r$ le altre resistenze (generatore, induttore).
+
+\begin{align*}
+\frac{V_{L}}{V_{A}} 
+= \frac{jwL}{ (r+R) + j(wL - \frac{1}{wC}) }
+= 
+\frac{\frac{w}{2\gamma}}
+{ -j(1+r/R) + \frac{1}{2\gamma}( w-\frac{w_0^2}{w}) }.
+\end{align*}
+
+Modulo e fase.
+Posto
+$ y(w) = \frac{w - \frac{w_0^2}{w}}{2\gamma} $,
+$ z(w) = \frac{w}{2\gamma} $ e 
+$ k = (1+r/R)$
+
+\begin{align*}
+& |\frac{V_{C}}{V_{A}}|  = z(w)( y(w)^2 + k^2)^{-\frac{1}{2}}
+& Arg\frac{V_{C}}{V_{A}} = \arctan( \frac{k}{y(w)} )
+\end{align*}
+
+
+\input{Tabelle/C4_P2_ind.tex}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{Grafici/C4_P2_Ind.eps}
+\caption{
+Circuito RLC serie.
+AC.
+Funzione di traferimento ai capi dell'induttore.
+}
+\label{fig:C4_P2_Ind}
+\end{figure}
+
+
+
+\subsubsection{Conclusioni}
+
+La tabella riporta le stime dei parametri del circuito.
+Le tre colonne centrali riportano le stime della Parte 2 in corrente alternata. L'ultima colonna riporta le stime conclusive degli stessi parametri eseguite nella Parte 1 in corrente impulsata.
+
+La parte 2 dell'esperimento riguardante le funzioni di trasferimento per capacità e induttore non è andata a buon fine. I risultati dei fit non vengono riportati perchè non affidabili.
+
+
+
+\input{Tabelle/C4_P2_finale.tex}
+\break

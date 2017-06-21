@@ -1,0 +1,40 @@
+\clearpage
+\subsection{Prisma: determinazione della lunghezza d'onda per diverse lampade}
+\label{sec:prisma2}
+Il fascio collimato di lunghezza d'onda incognita viene rifratto attraverso un prisma e viene misurato l'angolo di minima deviazione per calcolare le lunghezze d'onda dello spettro di emissione del gas. Valgono le stesse considerazioni sulle modalità di misura fatte nel paragrafo \ref{sec:prisma1}. Le lampade utilizzate sono la C e la D.\\
+\\
+Misurato $\delta$, si ottiene la lunghezza d'onda eguagliando le due espressioni dell'indice di rifrazione, con $\alpha$ noto ($62 \pm 1 °$) ed A e B ricavati da esperimento precedente. (Dove è stato sottinteso $\delta = \delta(\lambda)$ per alleggerire la notazione)
+    $$ n(\lambda) = \frac{\sin(\frac{\alpha + \delta }{2})}{\sin(\alpha/2) } = A + B/\lambda^2 $$
+quindi:
+    $$ \frac{1}{\lambda^2} = \frac{\frac{ \sin( (\alpha + \delta)/2 ) }{\sin(\alpha/2) } - A}{B} $$
+e:
+    $$\lambda = \sqrt{ \frac{B}{ \frac{ \sin( (\alpha + \delta)/2 ) }{\sin(\alpha/2) } -A } } $$
+\subsubsection{Lampada C}
+Dati:
+\input{Tabelle/O3_P2_2_LampadaC_raw.tex}
+Risultati:
+\input{Tabelle/O3_P2_2_LambdaC.tex}
+
+
+\subsubsection{Lampada D}
+Dati:
+\input{Tabelle/O3_P2_2_LampadaD_raw.tex}
+Risultati:
+\input{Tabelle/O3_P2_2_LambdaD.tex}
+
+
+\subsubsection{Confronto con spettro del visibile}
+\label{sec:prisma_confronto}
+%
+% Spettro lampade C e D
+%
+    \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{Grafici/O3_P2_2_spectrum.eps}
+    %\caption{}
+    \includegraphics[scale=1.2]{Grafici/VISspectrum.jpg}
+    %\caption{}
+    \label{fig:C3_P2_RL}
+    \end{figure} 
+%
+\paragraph{Considerazioni:}{Utilizzando il prisma si possono osservare molte più righe spettrali che con il reticolo, ma di minore intensità. In alcune zone dello spettro (in particolare nel rosso) le linee risultano talmente fitte da sembrare un continuo, rendendo difficile l'individuazione dei singoli massimi. Si è attribuito perciò un errore maggiore a tali zone, stimato dall'ampiezza della banda di colore continuo osservata.}

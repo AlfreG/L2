@@ -1,0 +1,84 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INIZIO %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Scopo dell'esperienza è la misura dell'impedenza e della funzione di trasferimento ai capi di una capacità. Come verrà dimostrato nella sezione \ref{sec:C3_P2-1}, l'impedenza per una capacità è:  $Z_c = \frac{1}{\omega C} \; e^{-j\pi/2}$
+\\
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FDT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\subsubsection{Funzione di trasferimento per C}
+La funzione di trasferimento ai capi del componente C, $V_{b-a}/V_a$, è:
+$$ H(\omega) = \frac{ V_{b-a} }{V_a} = \frac{Z_CI}{Z_{tot}I} = \frac{\frac{1}{j\omega C}}{R + \frac{1}{j\omega C}} = \frac{1}{1+j\omega CR} $$
+%
+per cui, modulo e argomento sono:
+%
+$$ Mod(H) = \frac{1}{\sqrt{ 1+(\omega R_{tot} C)^2} } \quad e \quad Arg(H) = \arctan(-\omega R_{tot}C) $$
+%
+Con $R_{tot} =  R + r_{gen} = 14900 \pm 200 \Omega $.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=.6]{Grafici/C2_P2_ModFdt1_.eps}
+    \caption{
+        Modulo funzione di trasferimento $ \tfrac{Vba}{Vb} $.
+         Capacità valore nominale $11$ $nF$
+    }
+    \label{fig:C2_P2_ModFdt1}
+\end{figure}
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=.6]{Grafici/C2_P2_ArgFdt1_.eps}
+    \caption
+    {
+        Argomento funzione di trasferimento $ \tfrac{Vba}{Vb} $.
+        Capacità valore nominale $11$ $nF$
+    }
+    \label{fig:C2_P2_ArgFdt1}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% IMPEDENZA %%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Impedenza per C}
+L'impedenza per C vale $Z_C = \tfrac{1}{j\omega C}$ di modulo $ Mod(Z) = \tfrac{1}{\omega C}$ e fase $Arg(Z)= \arctan(- 1/ \omega C)$
+%	C: 26200 +/- 193 nF
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=.7]{Grafici/C2_P2_impedenzaC.eps}
+    \caption{Modulo dell'impedenza per C}
+    \end{figure}
+
+\begin{figure}[H]
+    \includegraphics[scale=.7]{Grafici/C2_P2_impedenzaFaseC.eps}
+    \caption{Fase dell'impedenza per C}
+\end{figure}
+\paragraph{Considerazioni}{I risultati dei fit producono valori di C non attendibili, considerando i $\chi^2$ ottenuti.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Funzione di trasferimento $V_b/V_a$}
+La funzione di trasferimento ai capi della resistenza R è:
+  $$ H(\omega) = \frac{V_b}{V_a} = \frac{Z_RI}{Z_{tot}I} =  \frac{R \frac{V_a}{R+Z_C}}{V_a} =
+  \frac{R}{R + \frac{1}{j\omega C} } = \frac{1}{j\omega CR + 1} $$
+e quindi:
+  $$ Mod(H) = \frac{\omega C R}{\sqrt{1 + (\omega CR)^2}} \quad \mathrm{e} \quad Arg(H) = \arctan(\frac{1}{\omega CR})$$
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=.6]{Grafici/C2_P2_ModFdt2_.eps}
+    \caption
+    {
+        Modulo funzione di trasferimento $ \tfrac{Vb}{Va} $.
+    }
+    \label{fig:C2_P2_ModFdt2}
+\end{figure}
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=.6]{Grafici/C2_P2_ArgFdt2_.eps}
+    \caption
+    {
+        Argomento funzione di trasferimento $ \tfrac{Vb}{Va} $.
+        Resistenza totale $ R + r_{gen} = 14870 + 50 \pm 150 \Omega $.
+        Capacità valore nominale $11$ $nF$.
+    }
+    \label{fig:C2_P2_ArgFdt2}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DATI %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Dati}
+\input{Tabelle/C2_P2_risultati.tex}
+\input{Tabelle/C2_P2_ACRC.tex}
+

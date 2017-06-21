@@ -1,0 +1,22 @@
+\subsubsection{Diodo led}
+
+
+\input{Tabelle/C1_P3_dati.tex}
+
+Il grafico è stato fittato solo a partire da $V = 2.4 V$, ossia da dove parte la curvatura caratteristica.\\
+La formula del fit è
+$$ I = I_0 \cdot (e^{qV/gkt} -1) + a\cdot V $$
+Il termine $a$ indica che si è tenuto conto del fatto che il diodo è led, e quindi si comporta come se avesse in parallelo una resistenza).\\
+$  \frac{q}{kt} \approx 38.6 $ e $g$ è una costante adimensionale caratteristica del diodo.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.7]{Grafici/C1_P3.eps}
+\caption{
+Risposta diodo led
+}
+\label{fig:C1_P3}
+\end{figure}
+%
+%
+Il chi quadro ridotto è molto vicino a 1, il che indica un buon adattamento dei dati al fit.

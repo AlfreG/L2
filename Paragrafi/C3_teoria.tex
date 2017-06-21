@@ -1,0 +1,205 @@
+\subsection{Teoria: misure di impedenza in circuiti RC e RL in corrente alternata}
+
+Consideriamo un circuito nel quale tensione e corrente variano nel tempo secondo una legge di tipo sinusoidale $V(t)=V_0 \cos(\omega t)$ ed $I(t)=I_0 \cos(\omega t)$. Consideriamo elementi circuitali resistivi (R), capacitivi (C) e induttivi (L) ed andiamo ad analizzare l'equazione caratteristica di ciascun componente per determinare l'espressione della differenza di potenziale ai capi di esso.\\\\
+%
+\textbf{Resistenze}:
+L'equazione caratteristica di un resistore attraversato dalla corrente $I_0\cos(\omega t)$ è: 
+    $$V_R (t) = RI(t) = RI_0 \cos(\omega t)$$
+si nota quindi che ai capi di un resistore, la differenza di potenziale e la corrente sono in fase, e che tra le ampiezze sussiste la relazione:  
+    $$V_0 = RI_0$$
+Si osserva inoltre che non si ha alcuna dipendenza dalla pulsazione $\omega$\\\\
+%
+\textbf{Capacità}:
+La capacità è definita come $C = Q/V_C$, dove $Q$ è la carica accumulata sul condensatore e $V_C$ è la tensione ai capi di esso. L'equazione del circuito, se viene applicata una tensione sinusoidale $V_C(t)=V_0 \cos(\omega t)$, diventa:
+    $$Q(t) = CV_C(t) = CV_0 \cos(\omega t) $$
+%    
+La corrente quindi $I(t)=\mathrm{d}Q(t)/\mathrm{d}t$:
+    $$I(t) = C \frac{\mathrm{d}V(t)}{\mathrm{d}t} = \omega C V_0 (-\sin \omega t) = \omega C V_0 \cos \left(\omega t + \frac{\pi}{2}\right) $$
+%
+La tensione ai capi di un condensatore in un circuito in cui scorre la corrente $I(t)=I_0 \cos(\omega t)$ si trova risolvendo l'equazione $I(t)=C\mathrm{d}V_L(t)/\mathrm{d}t$, ove si è posta la costante di integrazione (il potenziale $V_T$) a 0:
+    $$V_C = \frac{1}{C} \!\cdot{}\!\!\!\! \int \!I(t) \mathrm{d}t = \frac{1}{\omega C} \!\cdot{}\! \sin(\omega t)  + V_T = \frac{1}{\omega C} \!\cdot{}\! \cos \left(\omega t - \frac{\pi}{2}\right)$$
+%
+La tensione risulta quindi sfasata di $-\pi/2$ rispetto alla corrente e il suo valore in modulo è:
+    $$V_0 = \frac{1}{\omega C} I_0$$
+%    
+La quantità $1/\omega C$ si definisce \textit{reattanza} del condensatore.\\\\
+%
+\textbf{Induttanze}:
+Per un elemento induttivo di resistenza trascurabile, ai capi del quale viene applicata una tensione alternata $V_L(t) = V_0 \cos(\omega t)$,  l'equazione del circuito è:
+
+    $$ V_L(t) = L \frac{\mathrm{d}I(t)}{\mathrm{d}t} \Rightarrow \frac{\mathrm{d}I(t)}{\mathrm{d}t} = \frac{V_0 \cos(\omega t)}{L} \Rightarrow$$
+    
+    $$\Rightarrow I(t) = \frac{V_0}{\omega L}\sin(\omega t) = \frac{V_0}{\omega L}\cos\left(\omega t - \frac{\pi}{2}\right) $$
+
+Dunque, la tensione ai capi di un induttore in cui scorre una corrente $I(t)= I_0\cos(\omega t)$ è:
+    $$V_L =L\frac{\mathrm{d}I(t)}{\mathrm{d}t} =\omega L I_0 \cos\left(\omega t + \frac{\pi}{2}\right) $$
+e in modulo:
+$$V_0=\omega L I_0$$    
+Tensione e corrente risultano sfasate di $+\frac{\pi}{2}$ e la reattanza dell'induttore è $\omega L$\\
+%
+\subsubsection{Simbolismo complesso}
+Se per tensione e corrente utilizziamo la rappresentazione complessa $V(t)=V_0 e^{j(\omega t + \phi)}$ e $I(t)=I_0 e^{j\omega t}$, allora Tensione e corrente (complesse) risultano proporzionali.\\
+%
+Il coefficiente di proporzionalità tra tensione e corrente complesse è detto \textit{impedenza}, un numero complesso che racchiude gli effetti del circuito: il suo modulo indica il rapporto tra le ampiezze di V e I reali e la sua fase indica il loro sfasamento. 
+    $$ Z = Z_0 e^{j\phi} $$  
+\paragraph{Nota}{
+        Indicheremo con $\phi$ lo sfasamento della tensione rispetto alla corrente. Cioè se $I(t)=I_0 \cos(\omega t)$ allora $V(t)=V_0\cos(\omega t + \phi)$}
+    \\
+Se rappresentato in forma algebrica $Z = R + jX$, la sua parte reale indica la componente resistiva del circuito e la sua parte immaginaria la componente reattiva (reattanza sopra definita è la parte immaginaria dell'impedenza).
+    $$Z=R+jX$$
+dove $j$ è l'unità immaginaria.\\
+%
+Il reciproco dell'impedenza è detto \textit{ammettenza}  $Y=1/Z$
+
+Ripetendo i calcoli per i potenziali ai capi di R, C e L con il formalismo complesso, si trova che:
+%
+\begin{center}
+\begin{tabular}{ l l l l l }
+ $Z_R$ & $Z = R$ & $R \cdot{} \mathrm{exp}(j0)$ & $Z_0= R C$ & $\phi= 0$\\
+ %
+$Z_C$ & $Z = 1/j\omega C$ & $1/\omega C \cdot{} \mathrm{exp}(-j\pi/2)$ & $Z_0= 1/\omega C$ & $\phi= -\pi/2$\\  
+ %
+ $Z_L$ & $Z = j\omega L$ &  $\omega L \cdot{} \mathrm{exp}(j \pi/2)$   & $Z_0=\omega L$ & $\phi= \pi/2$
+\end{tabular}
+\end{center}
+%
+In circuiti composti da serie e parallelo di R, L, e C, si sommano impedenze in serie e ammettenze in parallelo con le consuete leggi di Kirchoff.\\
+%
+\subsubsection{Calcolo impedenze su circuiti RC e RL}
+L'impedenza totale del circuito è $Z = \sum_{i=1}^n R_i = R + jX$. Il suo modulo è dato da $|Z| = \sqrt{R^2 + X^2}$ e la sua fase da $\phi = \arctan (X/R)$. Seguono calcoli dell'impedenza per circuito RC ed RL.\\\\
+%
+\textbf{Serie RC}
+    $$Z = Z_R+Z_C = R + \frac{1}{j\omega C} = \sqrt{ R^2+\frac{1}{(\omega C)^2} } \cdot{} e^{j\phi} \rightarrow $$
+    $$\rightarrow|Z|= \sqrt{ R^2+\frac{1}{(\omega C)^2} } \quad,\quad \phi = -\arctan \left(\frac{1}{\omega R C}\right)$$
+Attendiamo dunque che a basse frequenze il circuito abbia un comportamento capacitivo (quindi che la fase dell'impedenza tenda a $-\pi/2$) e che ad alte frequenze abbia un comportamente resistivo (che la fase dell'impedenza tenda a 0).\\
+Questo supporta l'intuizione in quanto per le basse frequenze il rapporto tra la costante di tempo del circuito e il periodo è molto basso. Ciò significa che in un periodo il numero di scariche della capacità (e quindi il flusso di carica nell'intervallo di tempo) è molto basso, e, nel limite di corrente continua, il circuito risulta aperto (non passa corrente attraverso C). La differenza di potenziale ai capi di C corrisponde al massimo di ampiezza della tensione. Come vedremo nella sezione successiva la funzione di trasferimento tende al valore 1.\\
+Ad alte frequenze il rapporto tra il tempo caratteristico e il periodo dell'oscillazione è alto e la capacità ha numerose scariche in un periodo, permettendo un transito netto di corrente con una componente resistiva molto bassa. La tendenza è quindi quella di un cortocircuito, e la funzione di trasferimento tende a zero.
+
+Se consideriamo anche la resistenza interna del generatore ($r_g$), nominalmente di $50 \Omega$, nel calcolo precedente è sufficiente sostituire il termine R alla somma $R + r_g$. L'impedenza diventa quindi:
+ $$|Z|= \sqrt{ (R+r_g)^2+\frac{1}{(\omega C)^2} } \quad,\quad \phi = -\arctan (\frac{1}{\omega (R+r_g) C})$$
+%
+Di seguito le resistenze che abbiamo utilizzato e l'influenza della resistenza del generatore.
+\begin{center}
+    \begin{tabular}{|c c c|}\hline
+            &                   & effetto $r_g$  \\
+         R1 & 14870 $\Omega$    & 0.3\%      \\
+         R2 & 677 $\Omega$      & 7\%   \\\hline
+    \end{tabular}
+    \label{tab:C3_P1_effetto_rg}
+\end{center}
+%
+Per R2 ci aspettiamo che possa avere infuenza significativa\\
+
+\textbf{Serie RL}
+$$ Z = Z_R + Z_L = R + j\omega L = \sqrt{R^2+(\omega L)^2} \cdot{} e^{j\phi} $$
+$$ |Z| = \sqrt{R^2+(\omega L)^2} \quad , \quad \phi = \arctan \left( \frac{\omega L}{R}\right) $$
+Attendiamo dunque che a basse frequenze il circuito presenti un comportamento resistivo (cioè che la fase dell'impedenza tenda a zero) menre ad alte frequenze un comportamento induttivo (e quindi il tendere della fase a $+\pi/2$).\\
+Intuitivamente, quando la frequenza è bassa (cioè si ha una tendenza alla corrente continua) la variazione di flusso del campo magnetico autoindotto avviene molto lentamente. A ciò corrisponde una forza elettromotrice autoindotta molto bassa, per la legge di Faraday $fem = -\mathrm{d}\Phi_B/\mathrm{d}t$, e quindi un effetto induttivo molto debole. Nel limite di corrente continua, l'induttore dovrebbe avere tendenza di corto circuito (se la resistenza interna è molto piccola) o di resistore (se la resistenza interna è apprezzabile). Al contrario, a frequenze elevate, si ha forte variazione di flusso del campo magnetico, intensa forza elettromotrice autoindotta e notabile effetto induttivo.\\
+%
+Se consideriamo anche la resistenza interna del generatore ($r_g$), nominalmente di $50 \Omega$, e dell'induttanza ($R_L$) di cui abbiamo tratto una prima stima con una misurazione da multimetro pari a $60 \Omega$, nel calcolo precedente è sufficiente sostituire il termine R alla somma $R + r_g + R_L$. L'impedenza diventa quindi:
+$$ |Z| = \sqrt{(R + r_g + R_L)^2+(\omega L)^2} \quad , \quad \phi = \arctan \left( \frac{\omega L}{(R + r_g + R_L)}\right) $$
+Non sapendo il funzionamento esatto del multimetro nel misurare la resistenza di una induttanza, assumiamo il valore di $60 \Omega$ solo come prima stima al quale attribuiamo solamente l'errore nominale dello strumento di misura, riservandoci di ricavare un valore più preciso dall'adattamento dei dati al modello.\\
+
+Di seguito le resistenze che abbiamo utilizzato e l'influenza della resistenza dell'induttore.
+\begin{center}
+    \begin{tabular}{|c c c|}\hline
+            &                   & effetto $r_L$  \\
+         R1 & 14870 $\Omega$    & 0.4\%      \\
+         R2 & 677 $\Omega$      & 9\%   \\\hline
+    \end{tabular}
+    \label{tab:C3_P1_effetto_rL}
+\end{center}
+Come prima, ci aspettiamo effetti maggiori su R2.\\\\
+%
+%
+\subsubsection{Aspettative}
+\begin{center}
+    \begin{tabular}{ c c c c c}
+        \hline
+        Circuito & Basse Frequenze & Alte Frequenze & $\|Z\|$ & $\phi$ \\ \hline
+        RC &  Capacitivo & Resistivo & $\sqrt{ R^2+\frac{1}{(\omega C)^2} }$ &$-\arctan (\frac{1}{\omega R C})$\\\\
+        RL & Resistivo & Induttivo & $\sqrt{R^2+(\omega L)^2}$  & $\arctan \left( \frac{\omega L}{R}\right)$
+    \end{tabular}
+    \label{tab:C3_P1_aspettative_RC_RL}
+\end{center}
+%
+\textbf{Influenza Resistenza generatore}: probabile effetto su R2\\
+\textbf{Influenza Resistenza induttore}: probabile effetto su R2\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Teoria: funzione di trasferimento in circuiti RC e RL in corrente alternata}
+
+Dato un qualsiasi circuito, si ha interesse a valutare la relazione tra segnali di output e di input in relazione alla frequenza della corrente considerata. In particolare si vuole una stima quantitativa e univoca di come viene variata la tensione in ingresso da quel particolare circuito.\\
+Si definisce allora la \textit{funzione di trasferimento} $H(\omega)$ del circuito come rapporto tra la variazione di tensione tra uscita e l'ingresso e la tensione in ingresso del circuito o di una parte di esso.\\ 
+Poichè $V_{Out}$ e $V_{In}$ sono tensioni complesse, anche H è un numero complesso, il cui modulo indica il rapporto tra le ampiezze tra le tensioni e la cui fase lo sfasamento tra le tensioni.
+Di seguito per i conti utilizziamo $v$,$i$ per indicare corrente e tensione complesse e $V$,$I$ per quelle reali
+    $$ H(\omega) \equiv \frac{v_{Across}}{v_{In}}$$
+In quest'esperienza vogliamo valutare la funzione di trasferimento ai capi di un'unica componente del circuito, L o C.\\\\
+%
+\textbf{Calcolo per RC}: 
+Siano $v_{C}(t)$ la tensione attraverso la capacità e $i(t)$ la corrente che scorre attraverso il circuito (omettiamo le dipendenze temporali dei calcoli dove non strettamente necessario). Nella terminologia precedente:
+    $$v_{Across}=v_C = Z_C i = \frac{i}{j\omega C} \quad\mathrm{e}\quad v_{In} = Z_{tot}i = (Z_C+Z_R)i = \left(\frac{1}{j\omega C} + R\right)i$$ 
+quindi la funzione di trasferimento:
+    $$H(\omega) = \frac{v_{Across} }{v_{In} } = \frac{1/j\omega C}{R+1/j\omega C} = \frac{1}{1+j\omega RC}$$
+%
+$H$ è un numero complesso di modulo e fase:
+    $$|H(\omega)| = \frac{1}{\sqrt{1+(\omega RC)^2} } \quad\mathrm{e}\quad Arg(H(\omega)) = \arctan (-\omega RC)$$
+    %
+Ci attendiamo quindi che: a basse frequenze la funzione di trasferimento abbia modulo tendente a 1 e fase tendente a 0, ad alte frequenze il modulo tende a 0 e la fase a $-\pi/2$.\\\\
+%
+\textbf{Calcolo per RL}: Siano $v_{L}(t)$ la tensione attraverso l'induttanza e $i(t)$ la corrente che scorre attraverso il circuito (omettiamo le dipendenze temporali dei calcoli dove non strettamente necessario). Nella terminologia precedente:
+    $$v_{Across}=v_L = Z_L i = j\omega L \quad\mathrm{e}\quad v_{In} = Z_{tot}i = (Z_L+Z_R)i = (j\omega L + R )i$$ 
+quindi la funzione di trasferimento:
+    $$H(\omega) = \frac{v_{Across} }{v_{In} } = \frac{j\omega L}{R+j\omega L} = \frac{j\omega L}{R+j\omega L}$$\\
+$H$ è un numero complesso di modulo e fase:
+    $$|H(\omega)| = \frac{\omega L}{\sqrt{R^2+(\omega L)^2} } \quad\mathrm{e}\quad Arg(H(\omega)) = \arctan \left(\frac{R}{\omega L}\right)$$
+    %
+Attendiamo quindi che per frequenze basse il modulo tenda a zero e la fase a $+\pi/2$, mentre a frequenze alte il modulo a 1 e la fase a 0.
+%
+\subsubsection{Aspettative}
+\begin{center}
+    \begin{tabular}{ |c|c c|c c|}
+        \hline
+        Circuito& Basse &Frequenze & Alte &Frequenze \\ 
+                & $\| H(\omega) \| $ & $Arg(H(\omega))$ & $\|H(\omega)\|$ & $Arg(H(\omega)$ \\\hline
+                &           &            &          &  \\
+        RC      & Tende a 1 & Tende a 0  & Tende a 0& Tende a $-\pi/2$\\
+                &           &            &          &   \\
+        RL      & Tende a 0 & Tende a 1  & Tende a $+\pi/2$ & Tende a 0  \\ \hline
+    \end{tabular}
+    \label{tab:C3_P1_aspettative_RC_RL}
+\end{center}
+Possiamo osservare quindi che il circuito RC ai capi della capacità si comporta come un filtro che smorza le frequenze alte (\textit{Filtro Passa-Basso}), mentre il circuito RL ai capi dell'induttanza si compoorta come un filtro per le frequenze basse (\textit{Filtro Passa-Alto}).\\
+
+Se invece si invertono la posizione di R e C (o L) e si misura la funzione di trasferimento ai capi della resistenza, i comportamenti di filtro si invertono: RC diventa \textit{Passa-Alto} e RL \textit{Passa-Basso}.\\\\
+%
+\textbf{Inversione di R e C}: le tensioni sono (secondo la terminologia precedente)
+    $$v_{Across} = Z_Ri = Ri\quad\mathrm{e}\quad v_{In} = (Z_R+Z_C)i = (R + 1/j \omega C )i $$
+    
+funzione di trasferimento:
+    $$H(\omega) = \frac{v_{Across} }{v_{In} } = \frac{j\omega CR}{j\omega CR + 1}$$
+    
+modulo e fase:
+    $$ |H(\omega)| = \frac{\omega CR}{\sqrt{(\omega CR)^2 + 1}} \quad\mathrm{e}\quad Arg(H(\omega)) = \arctan (1/\omega Cr) $$
+%
+Si osservi come per basse frequenze $|H|$ tende a 0 e ad alte frequenze tende a 1 (\textit{Passa-Alto})\\\\
+%
+%
+\textbf{Inversione di R e L}: le tensioni sono (secondo la terminologia precedente) 
+    $$v_{Across} = Z_Ri = Ri\quad\mathrm{e}\quad v_{In} = (Z_R+Z_L)i = (R + j \omega L )i $$
+funzione di trasferimento:
+    $$H(\omega) = \frac{v_{Across} }{v_{In} } = \frac{R}{R + j\omega L}$$
+modulo e fase:
+    $$ |H(\omega)| = \frac{R}{\sqrt{(\omega L)^2 + R^2}} \quad\mathrm{e}\quad Arg(H(\omega)) = \arctan \left(-\frac{\omega L}{R} \right) $$
+%  
+Si osservi come per basse frequenze $|H|$ tende a 1 e ad alte frequenze tende a 0 (\textit{Passa-Basso}).\\
+

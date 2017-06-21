@@ -1,0 +1,196 @@
+\subsection{Parte 1: circuito RLC in corrente impulsata}
+
+Obiettivo dell'esperienza è la misura delle costanti caratteristiche del circuito RLC attraverso la rilevazione della forma d'onda del segnale di tensione, in funzione del tempo, nei tre regimi di smorzamento.
+
+La dinamica di carica e scarica del circuito, è realizzata impostando un segnale di onda quadra con una frequenza sufficientemente bassa, in funzione dei tempi caratteristici di carica e scarica del circuito.
+
+La rilevazione del segnale avviene con un oscilloscopio le cui sonde sono posizionate ai capi della resistenza.
+
+La dinamica del sistema è matematicamente identica a quella di un oscillatore armonico smorzato con forzante costante, e può perciò essere convenientemente espressa anche in termini dei parametri meccanici $w_0^2$, la forza di richiamo per unità di massa e spostamento e $\gamma$, il coefficiente di smorzamento.
+
+\begin{align*}
+V_0    = & L\dot{I} + RI + Q/C   \\
+0      = & \ddot{Q} + 2\gamma \dot{Q} + \omega_0^2(Q-Q_0) \\
+\end{align*}
+
+La parametrizzazione meccanicistica è stata utilizzata in fase di stima dei modelli parametrici nei tre regimi di smorzamento. 
+
+Le stime e gli errori sui parametri elettrici sono stati ricavati successivamente usando le relazioni inverse che li legano a quelli meccanici.
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% SOTTO
+
+
+
+\subsubsection{Regime sottosmorzato}
+
+Indicando con 
+$\omega = \sqrt{\omega_0^2 - \gamma^2}$, $\gamma < \omega_0$,
+
+\begin{align*}
+V(t) / V_{0} =&  A \; e^{-\gamma t} \; [ \gamma \cos\omega t + \omega \sin\omega t ] \\
+A =& RC
+\end{align*}
+
+Inteso come modello parametrico in funzione dei tre parametri incogniti $w$, $\gamma$ e $A$. $V_0$ è misurabile direttamente dal primo canale dell'oscilloscopio. L'adattamento è stato eseguito con fit non lineare sui dati
+
+\input{Tabelle/C4_P1_sotto.tex}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{Grafici/C4_P1_Sotto-smorz.eps}
+\caption{
+Circuito RLC serie. Regime sottosmorzato.
+}
+\label{fig:C4_P1_sotto}
+\end{figure}
+
+Nel regime sottosmorzato non è possibile ottenere una stima puntuale dei parametri $R$, $C$ e $L$ perchè lo jacobiano di trasformazione tra parametri elettrici e meccanici ha determinante nullo.
+
+\begin{align*}
+    A / V_0 = & RC   \\
+    2\gamma    = & R/L   \\
+    w_0^{-2} = (w^2+\gamma^2)^{-1}    = & RL
+\end{align*}
+
+Le alternative sono: (a) ottenere una misura diretta di $R_{tot}$ misurando la resistenza delle singole componenti con multimetro palmare. Oppure (b) combinare queste misure con altre ottenute negli altri regimi.
+
+Qui di seguito i risultati ottenuti seguendo il metodo (a):
+
+\input{Tabelle/C4_P1_sotto_fit.tex}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% CRITICO
+
+
+
+\subsubsection{Regime di smorzamento critico}
+
+Alla condizione che $\omega_0 = \gamma$, il modello teorico per la ddp è
+
+\begin{align*}
+V(t)/ V_{0} =& A \gamma^{2} t e^{-\gamma t}    \\
+A = & RC
+\end{align*}
+
+Inteso come modello parametrico in funzione dei due parametri incogniti $\gamma$ e $A$. $V_0$ è misurabile direttamente dal primo canale dell'oscilloscopio. L'adattamento è stato eseguito con fit non lineare sui dati
+
+
+\input{Tabelle/C4_P1_critico.tex}        
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.75]{Grafici/C4_P1_Smorz-critic.eps}
+\caption{
+Circuito RLC serie. Regime di smorzamento critico.
+}
+\label{fig:C4_P1_critico}
+\end{figure}
+
+Nel regime di smorzamento critico non è possibile ottenere una stima puntuale dei parametri $R$, $C$ e $L$ non disponeno di sufficienti equazioni per esprimere i parametri elettrici in funzione di quelli meccanici.
+
+\begin{align*}
+    A / V_0 = & RC   \\
+    2\gamma    = & R/L   \\
+\end{align*}
+
+Le alternative sono: (a) ottenere una misura diretta di $R_{tot}$ misurando la resistenza delle singole componenti con multimetro palmare. Oppure (b) combinare queste misure con altre ottenute negli altri regimi (c) usare la condizione di smorzamento critico
+
+\begin{align*}
+    4L = & R^{2}C
+\end{align*}
+
+Qui di seguito i risultati ottenuti seguendo il metodo (a):
+
+\input{Tabelle/C4_P1_critico_fit.tex}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% SOVRA
+
+
+
+\subsubsection{Regime sovrasmorzato}
+
+Alla condizione che $\omega_0 < \gamma$, il modello teorico per la ddp è
+
+\begin{align*}
+V(t) / V_{0} =& A \frac{ \omega_0^2}{2\beta} \; [e^{-(\gamma - \beta)t} - e^{-(\gamma + \beta)t} ] \\
+\beta^2 =& \gamma^2 - \omega_0^2 
+\end{align*}
+
+Con questa parametrizzazione l'algoritmo di minimizzazione del fit non lineare non converge. Si riparametrizza il modello
+
+\begin{align*}
+V(t) / V_{0} =&
+Q_{0}  B ( e^{-\theta t} - e^{-\eta t} ) \\
+B = & \frac{ (\frac{\eta-\theta}{2})^2 + (\frac{\eta+\theta}{2})^2 }
+{\theta + \eta} \\
+\theta = & \beta-\gamma \\
+\eta   = & \beta+\gamma
+\end{align*}
+
+in funzione ora dei tre parametri incogniti $Q_0$, $\eta$ e $\theta$.
+
+\input{Tabelle/C4_P1_sovra.tex}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.75]{Grafici/C4_P1_Sovra-smorz.eps}
+\caption{
+Circuito RLC serie. Regime sovrasmorzato.
+}
+\label{fig:C4_P1_sovra}
+\end{figure}
+
+Per ricavare ora i parametri elettrici si possono usare le seguenti relazioni
+
+\begin{align}
+&    CR = Q_0  \\
+&    \frac{1}{CL} = w_0^2 = \frac{ (\frac{\eta-\theta}{2})^2 + (\frac{\eta+\theta}{2})^2 }
+{\theta + \eta} \\
+&    \frac{R}{L} = \eta-\theta
+\end{align}
+
+Usando una misura diretta di $R$, come fatto anche nei primi due regimi, si ricavano i seguenti risultati per $C$ e $L$ dalla prima e dalla terza relazione.
+
+\input{Tabelle/C4_P1_sovra_fit.tex}
+
+
+
+\subsubsection{Conclusioni}
+
+Riportiamo per comodità le stime dei parametri $C$ e $L$ risultanti dalle misure condotte nei tre regimi di smorzamento.
+
+\input{Tabelle/C4_P1_fit_finale.tex}
+
+\paragraph{Induttanza} Dai risultati è il parametro più semplice da stimare. Le stime condotte nei tre regimi sono coerenti tra loro, sia nel valore della stima che nel suo errore.
+
+\paragraph{Capacità} La stima della capacità risulta molto più incerta se si opera un confronto tra i risultati ottenuti nei tre regimi. Essendo stati condotti nelle medesime condizioni sperimentali, è possibile che le stime ottenute siano distorte per cause sistematiche legate al modello parametrico utilizzato.
+
+\paragraph{Mispeficiazione del modello}
+Una distorsione sistematica delle stime può avvenire perchè alcune ipotesi sottostanti al modello non sono verificate nella pratica.
+Nel contesto sperimentale in questione, tale ipotesi di distorsione è sicuramente plausibile per il regime di smorzamento critico, a causa l'impossibilità di intercettare la resistenza critica teorica. All'incertezza sulle stime va perciò aggiunta quella sul regime che effettivamente stanno seguendo i dati.
+Per quanto riguarda il regime sotto-smorzato, il rischio di mispecificazione del modello può trovare giustificazione in obiezioni come la non armonicità delle oscillazioni, lo smorzamento non esponenziale. E così anche per il caso sovrasmorzato.
+
+\paragraph{Modello più semplice}
+Dei tre regimi, quello sottosmorzato è quello che permette di verificare le ipotesi sottostanti separatamente e con maggior rigore. In ultima analisi è il modello più semplice da testare e anche da stimare. Siccome ognuno dei tre parametri meccanici usati controlla una specifica proprietà dell'andamento dei dati
+\begin{itemize}
+\item Pulsazione: controlla la periodicità delle oscillazioni.
+\item Smorzamento: controlla l'abbattimento dell'ampiezza iniziale.
+\item Ampiezza: controlla l'ampiezza iniziale.\\
+\end{itemize}
+
+Le tre quantità sarebbero anche potute essere oggetto di stima separatamente una dall'altra, con opportuno rimaneggiamento dei dati. Il vantaggio di stimarle in un unico Fit risiede naturalmente in una miglior stima degli errori e la possibilità di ottenere una misura della bontà di adattamento generale del modello.

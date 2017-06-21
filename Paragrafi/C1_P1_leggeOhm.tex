@@ -1,0 +1,137 @@
+
+\subsubsection{Resistenze interne strumenti}
+%    
+    Chiamiamo $R_i$ la resistenza da misurare e $R_V$ la resistenza interna del voltmetro e $R_A$ la resistenza interna dell'amperometro.\\    
+%  
+    Le resistenze che abbiamo utilizzato sono le seguenti (errore letto da ultima cifra dello strumento di misura):
+    %   Tabella dati resistenze
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|l r|}
+            \hline
+            $R_1$ & $ 10.1 \pm 0.1\Omega$      \\
+            $R_2$ & $ 677 \pm 1\Omega$         \\
+            $R_3$ & $ 15970 \pm 10\Omega$      \\
+            $R_4$ & $ 981000 \pm 1000\Omega$   \\ 
+            $R_5$ & $ 149000 \pm 100\Omega$    \\ 
+            \hline
+        \end{tabular}
+        %\caption{Caption}
+        %\label{tab:my_label}
+    \end{table}
+    
+    Schema dei due circuiti:
+     % Schema circuiti
+    \begin{figure}[H]
+    \centering
+    \includegraphics[scale=.25]{Grafici/C1_P1.png}
+    \end{figure} 
+    
+    
+    Formule utilizzate:
+    $$ \Delta V = R_{eq} I \Rightarrow R_{eq}=\frac{\Delta V}{I}$$
+
+    %spiegazione Rv
+    Circuito 1: misura di $R_V$
+    $$ \frac{1}{R_{eq}} = \frac{1}{R} + \frac{1}{R_V} \Rightarrow R_V = \frac{RR_{eq}}{R-R_{eq}} = \frac{R \Delta V}{IR - \Delta V} $$
+    
+    
+    %spiegazione Ra
+    Circuito 2: misura di $R_A$
+    $$ R_{eq} = R + R_A \Rightarrow R_A = R_{eq} - R = \frac{\Delta V}{I} - R$$
+    
+    
+    %   resistenza bassa
+    %Abbiamo riscontrato che se $R$ è troppo bassa rispetto a $R_V$, le misure effettuate risultano alterate. Abbiamo attribuito questo effetto alla eccessiva differenza tra le due resistenze, che fa sì che la corrente passante attraverso $R_V$ non sia sufficiente per una misura corretta.  
+   % Riportiamo in seguito i dati relativi a ciò.
+%
+    %   tabella schifo
+    %\input{Tabelle/C1_P1_tabellaSchifo.tex}
+% 
+%
+    Dati sperimentali:
+    %Tabella dati Rv%
+    \input{Tabelle/C1_P1_resistenzaVoltmetroRaw.tex} 
+    %Tabella dati Ra
+    \input{Tabelle/C1_P1_resistenzaAmperometroRaw.tex}
+    
+    
+    Per $R_V$ e $R_A$, abbiamo stimato l'errore relativo percentuale dalla somma degli errori relativi di $V$ $R$ e $I$, trovando:
+        $$ R_V = 1.17\cdot10^4 \; k\Omega \pm 4.47\%$$
+        $$ R_A = 5.27 \Omega \pm 0.02 \% $$
+% 
+%
+%
+%
+%
+\subsubsection{Verifica legge di Ohm}
+%
+% 
+%   
+\textbf{Resistore 1}\\
+%
+    % Dati R1
+    \input{Tabelle/C1_P1_R1ohm.tex}
+%
+    % Grafico R1
+    \begin{figure}[H]
+    \centering
+    \includegraphics[scale=.8]{Grafici/C1_P1_ohmR1.eps}
+    %\caption{Verifica legge di Ohm per resistore R1}
+    \label{fig:C1_P1_OhmR1}
+    \end{figure} 
+%
+    %   Resistore R1
+    \begin{center}
+   % \centering
+    Valore misurato: $R_1 = 677 \pm 1  \Omega$  \\
+    Valore ottenuto dal Fit: $R_1 = 675.2 \pm 0.3 \Omega$ \\
+    \end{center}
+%
+    Il risultato è accurato anche se l'errore associato è probabilmente troppo basso.\\\\
+%
+% 
+%
+%
+%
+\textbf{Resistore 2}\\
+%
+    % Dati R2
+    \input{Tabelle/C1_P1_R2ohm.tex}
+%
+    %   Grafico R2
+    \begin{figure}[H]
+    \centering
+    \includegraphics[scale=.8]{Grafici/C1_P1_ohmR2.eps}
+    %\caption{Verifica legge di Ohm per resistore R2}
+    \label{fig:C1_P1_OhmR2}
+    \end{figure}
+%
+    %   Resistore R2
+    \begin{center}
+    %\centering
+    Valore misurato: $R_2 = 266 \pm 1  \Omega$  \\
+    Valore ottenuto dal fit: $ R_2 = 265.5 \pm 0.1 \Omega$ \\
+    \end{center}
+%
+    In questo caso il chi quadro ridotto è molto alto. I dati sono molto scatterati rispetto alla linea, rispetto al loro errore. Siccome il risultato finale è accurato, il problema è probabilmente dovuto ad una sottovalutazione dell'errore associato alle misure.
+%
+\subsubsection{Resistenze composite}
+    Errori considerati come ultima cifra decimale dello strumento di misura.\\
+%
+    Dati:\\
+       $ R_1 = 148 \pm 1 k\Omega $\\ 
+       $ R_2 = 149 \pm 1 k\Omega $\\ 
+       $ R_3 = 100 \pm 1 k\Omega $\\ 
+%     
+%
+    %Req serie
+    \input{Tabelle/C1_P1_resEqSerie.tex}
+%  
+    %Req parallelo
+    \input{Tabelle/C1_P1_resEqParallelo.tex}
+    
+    Riassunto risultati:
+    %risultati resistenza equivalente
+    \input{Tabelle/C1_P1_resEqRisultati.tex}
+ 

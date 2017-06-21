@@ -1,0 +1,86 @@
+\subsection{Misura di lambda}
+%
+Detta $\Delta l$ la differenza tra i due cammini ottici del sistema in considerazione, si ottiene che per i punti di interferenza costruttiva 
+    $ \Delta l = n \lambda $, 
+mentre per i punti di interferenza distruttiva
+    $ \Delta l = (n + 1/2) \lambda $.\\
+Notazioni utilizzate:\\
+    $x_e$: posizione dell'emettitore su asse x\\
+    $x_r$: posizione del ricevitore su asse x\\
+%
+\subsubsection{Onde stazionarie}
+    Riduciamo l'errore sulla misura guardando lancetta con fattore amplificazione 10x fino all'intorno del max. Una volta al max cambiamo su 30x, per poter individuare il massimo più finemente.\\
+   % \textbf{Oss}: qui max e min, quindi metà dell'eperimento di fabry perot (massimi consecutivi)\\
+    \textbf{Oss}: questo metodo molto più efficiente di Fabry-Perot. La lancetta non oscilla così tanto e il sistema non è così sensibie alle perturbazioni esterne \\
+    Emettitore fisso a $ x = 30.0 \pm 0.1 cm $ dallo zero di riferimento.
+    Di seguito riportate le posizioni del ricevitore e tipo di picco corrispondente\\
+%
+    \input{Tabelle/O4_P3_stazionarie.tex}
+%
+    Detta $d$ distanza tra due massimi successivi o due minimi successivi.
+    $$ \lambda = 2d = 2.9 \pm 0.2 cm $$
+    errore stimato con propagazione.\\
+%
+\subsubsection{Interferenza da doppia fenditura}
+    Distanza tra le fenditure: $7.5 \pm 0.1 cm$\\
+    Otteniamo:
+        $$ \lambda = d\sin\theta/n = 2.5 \pm 0.1 cm$$
+    errore stimato con propagazione.\\
+    %
+    Misure effettuate:
+    \input{Tabelle/O4_P3_doppia_fenditura.tex}
+%
+\subsubsection{Specchio di Lloyd}
+    \textbf{Notazioni e formule}\\
+    %inserire immagine
+    asse x: tra emettitore/ricevitore\\
+    asse y: lungo direzione movimento specchio\\
+    Cammino1 quello seguito dall'onda diretta\\ Cammino2 quello seguito dall'onda riflessa\\
+    Consideriamo come origine (0,0) il centro del goniometro\\
+%
+    $y_s$: posizione dello specchio su asse y\\
+    Cammino2 = 
+        $\sqrt{ x^2_e + y^2_s } + \sqrt{ x^2_r + y^2_s }$\\
+%
+    Troviamo come risultato:\\
+    $$\lambda = 2.7 \pm 0.1 cm$$
+    errore stimato come standard error.\\
+%
+    \input{Tabelle/O4_P3_lloyd.tex}
+%
+\subsubsection{Parte 4: Interferometro di Fabry Perot}
+    Fonti di errore: i supporti degli specchi erano molto sensibili alle più piccole oscillazioni, producento alterazioni dei risultati apprezzabili. Siamo stati attenti a non toccare il tavolo.\\
+    Detta $d$ la distanza tra due massimi successivi, si ha che:
+        $$ \lambda = 2d = 2.7 \pm 0.2 cm$$
+    errore stimato con propagazione.\\
+%
+    Misure effettuate:\\
+    \input{Tabelle/O4_P3_fabry_perot.tex}
+%
+\subsubsection{Interferometro di Michelson}
+    Le misure sono state fatte prima muovendo lo specchio L1 lugo l'asse x e poi L2 lungo l'asse y.\\
+    \input{Tabelle/O4_P3_michelson.tex}
+    Risultato:
+        $$\lambda = 2\Delta x = 2\Delta y = 2.9 \pm 0.2 cm$$
+    errore stimato con propagazione.\\
+%
+\subsubsection{Diffrazione di Bragg}
+
+Il piano reticolare scelto è la diagonale del cubo.
+Per ogni misura, è stato fatto ruotare il cubo di 1 grado e il braccio del ricevitore di 2 gradi (entrambi in senso orario), ed è stata letta l'intensità di corrente rilevata. Di seguito il grafico dei dati sperimentali:
+
+    
+    \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{Grafici/O4_P3_Bragg.eps}
+    %\caption{}
+    \label{fig:O4_P3_Bragg}
+    \end{figure} 
+%
+La distanza tra piani di diffrazione misurata è $d = 2.7$ cm. Il primo massimo ($n = 1$) si trova a $ \theta = 31$ gradi. L'errore sul grado è stato stimato $0.5$ gradi.\\
+%
+Dalla formula $$2 d \sin(\theta) = n \lambda $$
+si ottiene 
+$$ \lambda = 2d = 2.8 \pm 0.1 cm $$
+In accordo con il valore nominale.
+%

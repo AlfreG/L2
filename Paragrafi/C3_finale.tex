@@ -1,0 +1,32 @@
+\subsection{Conclusioni}
+\label{sec:C3_final}
+
+\paragraph{Onda quadra}{ Nella pratica risulta impossibile realizzare un'onda perfettamente quadra poichè quando la tensione viene variata bruscamente il circuito ha dei tempi di risposta non istantanei. Se questo transiente dura $\delta t$, non nullo, mentre la parte a potenziale costante dura $\Delta t$, si ha che all'aumentare della frequenza  $\Delta t$ diminuisce. L'attesa è che $\delta t$ sia molto più influente ad alte frequenze poichè è maggiore il rapporto $\delta t/\Delta t$. Questo fenomeno non risulta evidente dai dati sperimentali.}
+%
+%
+%
+\paragraph{Metodo alternativo per la stima del tempo caratteristico}{Si osserva che all'aumentare della frequenza l'ampiezza massima della tensione aumenta in maniera monotona fino a raggiungere un massimo. Detto $\tau$ il tempo caratteristico di carica del condensatore e $T = 1/\nu$ il periodo dell'oscillazione del generatore, noto che $Q=V/C$ si osserva che:
+\begin{itemize}
+    \item per $T$ molto minore di $n\tau$ il condensatore non riesce a raggiungere la carica completa, quindi la tensione risulta bassa.
+    \item per $T$ circa dell'ordine di $n\tau$ l'ampiezza raggiunge un massimo poichè la carica avviene in maniera completa
+    \item per $T$ molto maggiore di $n\tau$ l'ampiezza si satura e il profilo tende a un'onda quadra, per l'argomento del paragrafo precedente.
+\end{itemize}
+Detta $\nu^*$ la frequenza in corrispondenza al massimo di ampiezza e $T^*$ il relativo periodo, se si assume $T^*$  è circa pari a $n\tau$, allora, noto R, si può ricavare C da:
+    $$\tau =  CR \Rightarrow C \approx T^*/nR $$ }
+%
+\paragraph{Confronto misure} In questo esperimento le misure su induttanze e capacità sono state condotte nel dominio della frequenza (parte 1, impedenza e funzione di trasferimento) e nel dominio del tempo (parte 2, tempi caratteristici di carica e scarica). \\
+%
+Un confronto diretto tra le due misure è possibile solo per la capacità da $11$ $nF$, dove si evidenzia un parziale accordo fra le due.\\
+%
+Dai dati riportati, non risulta chiaro se uno dei due metodi sia preferibile all'altro quanto a precisione, a causa della forte diversità degli errori relativi da componente a componente.\\
+%
+A questo proposito si osserva che, nelle misure in corrente alternata, a causa della forte differenza tra errori sperimentali ed effettiva varianza dei residui di regressione, gli errori delle variabili dipendenti sono stati ricalcolati in modo da normalizzare il chi quadrato,
+%
+\begin{align*}
+\chi^{2} &= \sum_{i=1}^{n}\frac{ ( y_{i}^{o} - y_{i}^{s})^{2} }{\sigma_{i}^{2}}    \\
+\sigma^{2}_{ric} & = \sum_{i=1}^{n}\frac{ ( y_{i}^{o} - y_{i}^{s})^{2} }{gdl} 
+\end{align*}
+%
+Senza tale normalizzazione gli errori relativi delle misure in corrente alternata risulterebbero in media più alti di quelli riportati, ma perchè sovrastimati rispetto all'effettiva varianza dei residui.
+%
+\input{Tabelle/C3_finale.tex}
