@@ -1,2 +1,1 @@
-# L2
-relazione di laboratorio 2
+Physics 2 Laboratory final report
